@@ -66,7 +66,7 @@
                 <a href="#experience" class="block text-gray-700 hover:text-green-600">Job Experience</a>
                 <a href="#projects" class="block text-gray-700 hover:text-green-600">Projects</a>
                 <a href="#contact" class="block text-gray-700 hover:text-green-600">Contact</a>
-                <a href="/cv.pdf" download
+                <a href="/Aumer-Meak-G.pdf" download
                     class="block px-4 py-2 bg-green-600 text-white rounded-full shadow-md hover:bg-green-700 transition">
                     Download CV
                 </a>

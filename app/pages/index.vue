@@ -90,7 +90,7 @@ onMounted(() => {
                     My Skills & Stack
                 </button>
             
-                <a href="/Project/portfoliomik/public/Aumer-Meak-G.pdf" download
+                <a href="/Aumer-Meak-G.pdf" download
                     class="px-4 py-2 bg-gray-800 text-white rounded-lg shadow hover:bg-gray-900 transition">
                     Download CV
                 </a>
