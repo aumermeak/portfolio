@@ -76,7 +76,7 @@ onMounted(() => {
 
        
         <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
-            <img src="/Project/portfoliomik/public/gradpic.jpg" alt="My photo" class="w-60 h-60 rounded-full shadow-lg mb-6 border-4 border-green-500 cursor-pointer 
+            <img src="/gradpic.jpg" alt="My photo" class="w-60 h-60 rounded-full shadow-lg mb-6 border-4 border-green-500 cursor-pointer 
          hover:shadow-2xl transition duration-300 hover:float-animation" @click="showModal = true" />
             <h1 class="text-5xl md:text-6xl font-bold mb-4">
                 Hi, I’m <span class="text-green-500">Aumer Meak Bagorio</span>
@@ -297,7 +297,7 @@ onMounted(() => {
                 <div class="bg-white shadow-lg rounded-2xl p-8 md:flex items-center gap-8 hover:shadow-xl transition">
               
                     <div class="flex-shrink-0 mx-auto md:mx-0">
-                        <img src="/Project/portfoliomik/public/gradpic.jpg" alt="Your Photo"
+                        <img src="/gradpic.jpg" alt="Your Photo"
                             class="w-40 h-40 object-cover rounded-full border-4 border-green-500 shadow-md" />
                     </div>
 
