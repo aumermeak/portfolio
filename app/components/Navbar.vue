@@ -38,7 +38,7 @@
 
             <!-- Desktop CV Button -->
             <div class="hidden md:block">
-                <a href="/cv.pdf" download
+                <a href="/Aumer-Meak-G.pdf" download
                     class="px-4 py-2 bg-green-600 text-white rounded-full shadow-md hover:bg-green-700 hover:scale-105 transition">
                     Download CV
                 </a>
@@ -61,12 +61,14 @@
         <transition name="fade">
             <div v-if="isOpen"
                 class="md:hidden bg-white/95 backdrop-blur-md shadow-lg rounded-xl mt-2 mx-4 p-4 space-y-4 text-center">
-                <a href="#about" class="block text-gray-700 hover:text-green-600">About</a>
-                <a href="#skills" class="block text-gray-700 hover:text-green-600">Skills</a>
-                <a href="#experience" class="block text-gray-700 hover:text-green-600">Job Experience</a>
-                <a href="#projects" class="block text-gray-700 hover:text-green-600">Projects</a>
-                <a href="#contact" class="block text-gray-700 hover:text-green-600">Contact</a>
-                <a href="/Aumer-Meak-G.pdf" download
+                <a href="#about" @click="isOpen = false" class="block text-gray-700 hover:text-green-600">About</a>
+                <a href="#skills" @click="isOpen = false" class="block text-gray-700 hover:text-green-600">Skills</a>
+                <a href="#experience" @click="isOpen = false" class="block text-gray-700 hover:text-green-600">Job
+                    Experience</a>
+                <a href="#projects" @click="isOpen = false"
+                    class="block text-gray-700 hover:text-green-600">Projects</a>
+                <a href="#contact" @click="isOpen = false" class="block text-gray-700 hover:text-green-600">Contact</a>
+                <a href="/Aumer-Meak-G.pdf" download @click="isOpen = false"
                     class="block px-4 py-2 bg-green-600 text-white rounded-full shadow-md hover:bg-green-700 transition">
                     Download CV
                 </a>
