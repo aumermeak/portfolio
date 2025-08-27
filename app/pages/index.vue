@@ -370,7 +370,7 @@ onMounted(() => {
 
           
                     <div class="flex flex-col items-center">
-                        <img src="/Project/portfoliomik/public/gradpic.jpg" alt="My photo"
+                        <img src="/gradpic.jpg" alt="My photo"
                             class="w-60 h-60 rounded-xl shadow-lg border-4 border-green-500 object-cover transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl" />
 
                   
