@@ -25,10 +25,10 @@ const handleScroll = () => {
 
 watch(showModal, (newVal) => {
     if (newVal) {
-      
+
         skills.value.forEach((skill) => (skill.current = 0))
 
-      
+
         setTimeout(() => {
             skills.value.forEach((skill) => {
                 skill.current = skill.points
@@ -71,10 +71,10 @@ onMounted(() => {
 
 <template>
     <div class="font-sans text-gray-900 scroll-smooth">
-     
+
         <Navbar />
 
-       
+
         <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
             <img src="/gradpic.jpg" alt="My photo" class="w-60 h-60 rounded-full shadow-lg mb-6 border-4 border-green-500 cursor-pointer 
          hover:shadow-2xl transition duration-300 hover:float-animation" @click="showModal = true" />
@@ -89,7 +89,7 @@ onMounted(() => {
                     class="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 transition cursor-pointer">
                     My Skills & Stack
                 </button>
-            
+
                 <a href="/Aumer-Meak-G.pdf" download
                     class="px-4 py-2 bg-gray-800 text-white rounded-lg shadow hover:bg-gray-900 transition">
                     Download CV
@@ -97,7 +97,7 @@ onMounted(() => {
             </div>
         </section>
 
-       
+
         <section id="about"
             class="py-20 px-6 bg-gray-50 fade-in-section opacity-0 translate-y-10 transition-all duration-700">
             <div class="max-w-3xl mx-auto text-center">
@@ -111,16 +111,16 @@ onMounted(() => {
             </div>
         </section>
 
-     
+
         <section id="skills"
             class="py-20 px-6 bg-white fade-in-section opacity-0 translate-y-10 transition-all duration-700">
             <div class="max-w-5xl mx-auto text-center">
                 <h2 class="text-3xl font-bold mb-8 text-gray-900">My Skills & Stacks</h2>
                 <p class="text-gray-600 mb-12">Technologies, stacks, and tools I work with 🚀</p>
 
-                
+
                 <div class="space-y-8 text-left mb-16">
-              
+
                     <div>
                         <div class="flex justify-between mb-2">
                             <span class="font-medium text-gray-800">Front-End Development</span>
@@ -131,7 +131,7 @@ onMounted(() => {
                         </div>
                     </div>
 
-                   
+
                     <div>
                         <div class="flex justify-between mb-2">
                             <span class="font-medium text-gray-800">Design</span>
@@ -150,7 +150,7 @@ onMounted(() => {
                             <div class="bg-green-600 h-3 rounded-full" style="width: 30%"></div>
                         </div>
                     </div>
-                  
+
                     <div>
                         <div class="flex justify-between mb-2">
                             <span class="font-medium text-gray-800">Linux (Ubuntu)</span>
@@ -161,7 +161,7 @@ onMounted(() => {
                         </div>
                     </div>
 
-              
+
                     <div>
                         <div class="flex justify-between mb-2">
                             <span class="font-medium text-gray-800">Front-End To Back-End API Integration</span>
@@ -173,11 +173,11 @@ onMounted(() => {
                     </div>
                 </div>
 
-               
+
                 <div>
                     <h3 class="text-xl font-semibold mb-6 text-green-600">Languages, Stacks & Tools</h3>
                     <div class="flex flex-wrap justify-center gap-8">
-                       
+
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
                             class="w-14 h-14 hover:scale-110 transition" alt="HTML" />
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
@@ -193,7 +193,7 @@ onMounted(() => {
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuetify/vuetify-original.svg"
                             class="w-14 h-14 hover:scale-110 transition" alt="Vuetify" />
 
-                    
+
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
                             class="w-14 h-14 hover:scale-110 transition" alt="Vue.js" />
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg"
@@ -203,7 +203,7 @@ onMounted(() => {
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
                             class="w-14 h-14 hover:scale-110 transition" alt="TailwindCSS" />
 
-                      
+
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
                             class="w-14 h-14 hover:scale-110 transition" alt="Figma" />
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
@@ -216,14 +216,14 @@ onMounted(() => {
                 </div>
             </div>
         </section>
-        
+
         <section id="experience"
             class="py-20 px-6 fade-in-section opacity-0 translate-y-10 transition-all duration-700">
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-3xl font-bold mb-8 text-center">Job Experience</h2>
 
                 <div class="space-y-8">
-             
+
                     <div class="p-6 bg-white shadow rounded-xl border-l-4 border-green-500">
                         <h3 class="text-xl font-semibold text-gray-900">Project-Based Frontend Developer</h3>
                         <p class="text-gray-600 text-sm mb-2">Seaversity • Aug 2023 – July 2024</p>
@@ -235,7 +235,7 @@ onMounted(() => {
                         </ul>
                     </div>
 
-              
+
                     <div class="p-6 bg-white shadow rounded-xl border-l-4 border-green-500">
                         <h3 class="text-xl font-semibold text-gray-900">Internship</h3>
                         <p class="text-gray-600 text-sm mb-2">Seaversity • March 2023 – July 2023</p>
@@ -254,7 +254,7 @@ onMounted(() => {
                 <h2 class="text-3xl font-bold mb-8 text-center">Projects & Contributions</h2>
 
                 <div class="grid md:grid-cols-2 gap-8">
-   
+
                     <div class="p-6 bg-white shadow rounded-xl hover:shadow-lg transition border-t-4 border-green-500">
                         <h3 class="text-xl font-semibold text-gray-900">Inventory Management System</h3>
                         <p class="text-gray-600 text-sm mb-3">Seaversity • Aug 2023 – Dec 2024</p>
@@ -265,7 +265,7 @@ onMounted(() => {
                         </ul>
                     </div>
 
-             
+
                     <div class="p-6 bg-white shadow rounded-xl hover:shadow-lg transition border-t-4 border-green-500">
                         <h3 class="text-xl font-semibold text-gray-900">Academic Management System</h3>
                         <p class="text-gray-600 text-sm mb-3">Seaversity • March 2025 – July 2025</p>
@@ -288,15 +288,15 @@ onMounted(() => {
                 </div>
             </div>
         </section>
-     
+
         <section id="contact"
             class="py-20 px-6 bg-gray-50 fade-in-section opacity-0 translate-y-10 transition-all duration-700">
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-12">Contact Me</h2>
 
                 <div class="bg-white shadow-lg rounded-2xl p-8 md:flex items-center gap-8 hover:shadow-xl transition">
-              
-                    <div class="flex-shrink-0 mx-auto md:mx-0">
+
+                    <div class="flex-shrink-0 flex justify-center md:justify-start mx-auto md:mx-0">
                         <img src="/gradpic.jpg" alt="Your Photo"
                             class="w-40 h-40 object-cover rounded-full border-4 border-green-500 shadow-md" />
                     </div>
@@ -308,51 +308,58 @@ onMounted(() => {
                         </p>
 
                         <ul class="text-gray-700 mb-6 space-y-3">
-                            <li class="flex items-center gap-2">
-                                <span class="text-green-600">
-                                    📞
-                                </span>
-                                <span><strong>Phone:</strong> +63 943 553 3691</span>
+                            <!-- Phone -->
+                            <li class="flex flex-col md:flex-row md:items-center md:gap-3">
+                                <div class="flex items-center text-green-600 font-semibold">
+                                    📞 <span class="ml-2">Phone:</span>
+                                </div>
+                                <div class="mt-1 md:mt-0 text-gray-800">+63 943 553 3691</div>
                             </li>
 
-                            <li class="flex items-center gap-2">
-                                <span class="text-green-600">✉️</span>
-                                <span><strong>Email:</strong> aumermeakgloriabagorio@gmail.com</span>
+                            <!-- Email -->
+                            <li class="flex flex-col md:flex-row md:items-center md:gap-3">
+                                <div class="flex items-center text-green-600 font-semibold">
+                                    ✉️ <span class="ml-2">Email:</span>
+                                </div>
+                                <div class="mt-1 md:mt-0 text-gray-800 break-all">
+                                    aumermeakgloriabagorio@gmail.com
+                                </div>
                             </li>
 
-                            <li class="flex items-center gap-2">
-                                <span class="text-green-600">📍</span>
-                                <span><strong>Location:</strong> Valenzuela City</span>
+                            <!-- Location -->
+                            <li class="flex flex-col md:flex-row md:items-center md:gap-3">
+                                <div class="flex items-center text-green-600 font-semibold">
+                                    📍 <span class="ml-2">Location:</span>
+                                </div>
+                                <div class="mt-1 md:mt-0 text-gray-800">Valenzuela City</div>
                             </li>
 
-                    
-                            <li class="flex items-center gap-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                                    alt="GitHub" class="w-5 h-5" />
-                                <a href="https://github.com/aumermeak" target="_blank" class="hover:underline">
-                                    GitHub: https://github.com/aumermeak
+                            <!-- Social Icons Side by Side -->
+                            <div class="flex justify-center md:justify-start gap-4 mt-4">
+                                <!-- GitHub -->
+
+                                <a href="https://github.com/aumermeak" target="_blank"
+                                    class="bg-green-600 p-3 rounded-full inline-flex items-center justify-center hover:bg-green-700 transition">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                                        class="w-6 h-6" alt="GitHub" />
                                 </a>
-                            </li>
 
+                                <!-- LinkedIn -->
 
-                            <li class="flex items-center gap-2">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-                                    alt="LinkedIn" class="w-5 h-5" />
                                 <a href="https://www.linkedin.com/in/aumer-meak-bagorio-1117a8317/" target="_blank"
-                                    class="hover:underline">
-                                    LinkedIn: https://www.linkedin.com/in/aumer-meak-bagorio-1117a8317/
+                                    class="bg-green-600 p-3 rounded-full inline-flex items-center justify-center hover:bg-green-700 transition">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                                        class="w-6 h-6" alt="LinkedIn" />
                                 </a>
-                            </li>
 
+                                <!-- JobStreet -->
 
-                       
-                            <li class="flex items-center gap-2">
-                                <img src="https://cdn.brandfetch.io/idHY-qDocV/w/60/h/60/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B"
-                                    alt="JobStreet" class="w-5 h-5" />
-                                <a href="https://www.jobstreet.com.ph/" target="_blank" class="hover:underline">
-                                    JobStreet: https://ph.jobstreet.com/profile/aumermeak-bagorio-4HQ3Q07lJ7
+                                <a href="https://ph.jobstreet.com/profile/aumermeak-bagorio-4HQ3Q07lJ7" target="_blank"
+                                    class="bg-green-600 p-3 rounded-full inline-flex items-center justify-center hover:bg-green-700 transition">
+                                    <img src="https://cdn.brandfetch.io/idHY-qDocV/w/60/h/60/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B"
+                                        class="w-6 h-6" alt="JobStreet" />
                                 </a>
-                            </li>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -368,31 +375,31 @@ onMounted(() => {
             <div v-if="showModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
                 <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full p-8 flex gap-6 relative">
 
-          
+
                     <div class="flex flex-col items-center">
                         <img src="/gradpic.jpg" alt="My photo"
                             class="w-60 h-60 rounded-xl shadow-lg border-4 border-green-500 object-cover transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl" />
 
-                  
+
                         <div class="mt-6 w-full text-center">
                             <h3 class="text-xl font-semibold mb-4 text-gray-800">My Stacks</h3>
                             <div class="flex flex-wrap justify-center gap-6">
-                         
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
                                     class="w-10 h-10" alt="Vue" />
-                             
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg"
                                     class="w-10 h-10" alt="Nuxt" />
 
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
                                     class="w-10 h-10" alt="Laravel" />
-                         
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
                                     class="w-10 h-10" alt="TailwindCSS" />
-                             
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuetify/vuetify-original.svg"
                                     class="w-10 h-10" alt="Vuetify" />
-                              
+
                                 <img src="https://flowbite.s3.amazonaws.com/logo.svg" class="w-10 h-10"
                                     alt="Flowbite" />
                             </div>
@@ -401,19 +408,19 @@ onMounted(() => {
                         <div class="mt-8 w-full text-center">
                             <h3 class="text-xl font-semibold mb-4 text-gray-800">Programming Languages</h3>
                             <div class="flex flex-wrap justify-center gap-6">
-                                
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
                                     class="w-10 h-10" alt="HTML" />
-                               
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
                                     class="w-10 h-10" alt="CSS" />
-                          
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
                                     class="w-10 h-10" alt="JavaScript" />
-                              
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
                                     class="w-10 h-10" alt="TypeScript" />
-                           
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
                                     class="w-10 h-10" alt="PHP" />
                             </div>
@@ -421,15 +428,15 @@ onMounted(() => {
                         <div class="mt-8 w-full text-center">
                             <h3 class="text-xl font-semibold mb-4 text-gray-800">Tools</h3>
                             <div class="flex flex-wrap justify-center gap-6">
-                             
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
                                     class="w-10 h-10" alt="Figma" />
 
-                         
+
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
                                     class="w-10 h-10" alt="GitHub" />
 
-                         
+
                                 <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg"
                                     class="w-10 h-10" alt="Postman" />
 
@@ -439,7 +446,7 @@ onMounted(() => {
                         </div>
                     </div>
 
-                   
+
                     <div class="flex-1">
                         <h2 class="text-2xl font-bold mb-4">My Skills</h2>
 
@@ -447,7 +454,7 @@ onMounted(() => {
                             <div v-for="skill in skills" :key="skill.name" class="p-4 rounded-xl bg-gray-100 shadow-md">
                                 <h3 class="text-lg font-bold mb-2">{{ skill.name }}</h3>
 
-                               
+
                                 <div class="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
                                     <div class="h-3 rounded-full bg-green-500 transition-all duration-1000"
                                         :style="{ width: skill.current + '%' }"></div>
@@ -457,7 +464,7 @@ onMounted(() => {
                         </div>
                     </div>
 
-                   
+
                     <button @click="showModal = false"
                         class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-xl">
                         ✖
@@ -481,7 +488,7 @@ onMounted(() => {
 
     50% {
         transform: translateY(-4px);
-    
+
     }
 }
 
