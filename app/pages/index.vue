@@ -1,9 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from "vue"
 
+// existing refs
 const showButton = ref(false)
 const showModal = ref(false)
-const sections = ref([])
+const sections = ref<NodeListOf<Element> | null>(null)
 
 const skills = ref([
     { name: "Front-end Development", points: 85, current: 0 },
@@ -13,22 +14,46 @@ const skills = ref([
     { name: "Front-End To Back-End API Integration", points: 70, current: 0 },
 ])
 
+// typing effect
+const fullText = "want to collaborate, or just communicate."
+const displayText = ref<string>("")
+const isDeleting = ref<boolean>(false)
+let i = 0
+let speed = 100
 
-
-
-
-
-const handleScroll = () => {
-    showButton.value = window.scrollY > 200
+function typeEffect(): void {
+    if (!isDeleting.value) {
+        if (i < fullText.length) {
+            displayText.value += fullText[i]
+            i++
+            setTimeout(typeEffect, speed)
+        } else {
+            setTimeout(() => {
+                isDeleting.value = true
+                typeEffect()
+            }, 2000)
+        }
+    } else {
+        if (i > 0) {
+            displayText.value = fullText.substring(0, i - 1)
+            i--
+            setTimeout(typeEffect, speed / 2)
+        } else {
+            isDeleting.value = false
+            setTimeout(typeEffect, speed)
+        }
+    }
 }
 
+// scroll button logic
+const handleScroll = () => {
+    showButton.value = window.scrollY > 200 // instead of 200
+}
 
+// skill animation
 watch(showModal, (newVal) => {
     if (newVal) {
-
         skills.value.forEach((skill) => (skill.current = 0))
-
-
         setTimeout(() => {
             skills.value.forEach((skill) => {
                 skill.current = skill.points
@@ -37,35 +62,38 @@ watch(showModal, (newVal) => {
     }
 })
 
-
 const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
 }
 
 onMounted(() => {
     window.addEventListener("scroll", handleScroll)
+    typeEffect() // start typing effect
 })
+
 onUnmounted(() => {
     window.removeEventListener("scroll", handleScroll)
 })
+
 onMounted(() => {
-    sections.value = document.querySelectorAll('.fade-in-section')
+    sections.value = document.querySelectorAll(".fade-in-section")
 
     const observer = new IntersectionObserver(
         (entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0')
-                    entry.target.classList.remove('opacity-0', 'translate-y-10')
+                    entry.target.classList.add("opacity-100", "translate-y-0")
+                    entry.target.classList.remove("opacity-0", "translate-y-10")
                 }
             })
         },
         { threshold: 0.1 }
     )
 
-    sections.value.forEach(section => observer.observe(section))
+    sections.value.forEach((section) => observer.observe(section))
 })
 </script>
+
 
 
 
@@ -290,86 +318,89 @@ onMounted(() => {
         </section>
 
         <section id="contact"
-            class="py-20 px-6 bg-gray-50 fade-in-section opacity-0 translate-y-10 transition-all duration-700">
+            class="py-20 px-6 bg-gradient-to-b from-gray-50 to-white fade-in-section opacity-0 translate-y-10 transition-all duration-700">
             <div class="max-w-5xl mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-12">Contact Me</h2>
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800"> Contact Me</h2>
 
-                <div class="bg-white shadow-lg rounded-2xl p-8 md:flex items-center gap-8 hover:shadow-xl transition">
+                <div
+                    class="bg-white shadow-xl rounded-2xl p-10 md:grid md:grid-cols-2 gap-10 items-center hover:shadow-2xl transition">
 
-                    <div class="flex-shrink-0 flex justify-center md:justify-start mx-auto md:mx-0">
+                    <!-- Left Column (Image + Intro) -->
+                    <div class="flex flex-col items-center text-center justify-center h-full space-y-4">
                         <img src="/gradpic.jpg" alt="Your Photo"
-                            class="w-40 h-40 object-cover rounded-full border-4 border-green-500 shadow-md" />
+                            class="w-36 h-36 object-cover rounded-full border-4 border-green-500 shadow-lg" />
+
+                        <h3 class="text-xl font-bold text-gray-800">Aumer Meak Bagorio</h3>
+                        <p class="text-green-600 font-medium">Front-End Web Developer</p>
+
+                        <div class="max-w-xl">
+                            <p class="text-gray-600 leading-relaxed break-words">
+                                Always happy to connect — whether it’s to discuss a project idea,
+                                <span>{{ displayText }}</span><span class="cursor"></span>
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="text-center md:text-left mt-6 md:mt-0">
-                        <p class="text-lg text-gray-700 mb-2">
-                            I'm eager to hear from you—whether it's a project idea, collaboration,
-                            or just a friendly hello!
-                        </p>
-
-                        <ul class="text-gray-700 mb-6 space-y-3">
-                            <!-- Phone -->
-                            <li class="flex flex-col md:flex-row md:items-center md:gap-3">
-                                <div class="flex items-center text-green-600 font-semibold">
-                                    📞 <span class="ml-2">Phone:</span>
-                                </div>
-                                <div class="mt-1 md:mt-0 text-gray-800">+63 943 553 3691</div>
-                            </li>
-
-                            <!-- Email -->
-                            <li class="flex flex-col md:flex-row md:items-center md:gap-3">
-                                <div class="flex items-center text-green-600 font-semibold">
-                                    ✉️ <span class="ml-2">Email:</span>
-                                </div>
-                                <div class="mt-1 md:mt-0 text-gray-800 break-all">
-                                    aumermeakgloriabagorio@gmail.com
-                                </div>
-                            </li>
-
-                            <!-- Location -->
-                            <li class="flex flex-col md:flex-row md:items-center md:gap-3">
-                                <div class="flex items-center text-green-600 font-semibold">
-                                    📍 <span class="ml-2">Location:</span>
-                                </div>
-                                <div class="mt-1 md:mt-0 text-gray-800">Valenzuela City</div>
-                            </li>
-
-                            <!-- Social Icons Side by Side -->
-                            <div class="flex justify-center md:justify-start gap-4 mt-4">
-                                <!-- GitHub -->
-
-                                <a href="https://github.com/aumermeak" target="_blank"
-                                    class="bg-green-600 p-3 rounded-full inline-flex items-center justify-center hover:bg-green-700 transition">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                                        class="w-6 h-6" alt="GitHub" />
-                                </a>
-
-                                <!-- LinkedIn -->
-
-                                <a href="https://www.linkedin.com/in/aumer-meak-bagorio-1117a8317/" target="_blank"
-                                    class="bg-green-600 p-3 rounded-full inline-flex items-center justify-center hover:bg-green-700 transition">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-                                        class="w-6 h-6" alt="LinkedIn" />
-                                </a>
-
-                                <!-- JobStreet -->
-
-                                <a href="https://ph.jobstreet.com/profile/aumermeak-bagorio-4HQ3Q07lJ7" target="_blank"
-                                    class="bg-green-600 p-3 rounded-full inline-flex items-center justify-center hover:bg-green-700 transition">
-                                    <img src="https://cdn.brandfetch.io/idHY-qDocV/w/60/h/60/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B"
-                                        class="w-6 h-6" alt="JobStreet" />
-                                </a>
+                    <!-- Right Column (Contact Info) -->
+                    <div class="space-y-6">
+                        <!-- Phone -->
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-100 text-green-600 p-3 rounded-full">📞</div>
+                            <div>
+                                <p class="font-semibold text-gray-700">Phone</p>
+                                <p class="text-gray-800">+63 943 553 3691</p>
                             </div>
-                        </ul>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-100 text-green-600 p-3 rounded-full">✉️</div>
+                            <div>
+                                <p class="font-semibold text-gray-700">Email</p>
+                                <p class="text-gray-800 break-all">aumermeakgloriabagorio@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-100 text-green-600 p-3 rounded-full">📍</div>
+                            <div>
+                                <p class="font-semibold text-gray-700">Location</p>
+                                <p class="text-gray-800">Valenzuela City</p>
+                            </div>
+                        </div>
+
+                        <!-- Social Icons -->
+                        <div class="flex justify-center md:justify-start gap-4 mt-6">
+                            <a href="https://github.com/aumermeak" target="_blank"
+                                class="bg-green-600 p-3 rounded-full inline-flex items-center justify-center hover:bg-green-700 transition">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                                    class="w-6 h-6" alt="GitHub" />
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/aumer-meak-bagorio-1117a8317/" target="_blank"
+                                class="bg-green-600 p-3 rounded-full inline-flex items-center justify-center hover:bg-green-700 transition">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                                    class="w-6 h-6" alt="LinkedIn" />
+                            </a>
+
+                            <a href="https://ph.jobstreet.com/profile/aumermeak-bagorio-4HQ3Q07lJ7" target="_blank"
+                                class="bg-green-600 p-3 rounded-full inline-flex items-center justify-center hover:bg-green-700 transition">
+                                <img src="https://cdn.brandfetch.io/idHY-qDocV/w/60/h/60/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B"
+                                    class="w-6 h-6" alt="JobStreet" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <button v-show="showButton" @click="scrollToTop"
-                class="fixed bottom-6 right-6 p-3 rounded-full bg-green-600 text-white shadow-lg hover:bg-green-700 transition">
-                ⬆️
-            </button>
+
         </section>
+        <!-- Back to Top Button -->
+        <button v-show="showButton" @click="scrollToTop"
+            class="fixed bottom-6 right-6 p-3 rounded-full bg-green-600 text-white shadow-lg hover:bg-green-700 transition">
+            ⬆️
+        </button>
         <transition enter-active-class="transition transform duration-700"
             enter-from-class="opacity-0 translate-y-10 scale-90" enter-to-class="opacity-100 translate-y-0 scale-100">
             <div v-if="showModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
@@ -494,5 +525,20 @@ onMounted(() => {
 
 .hover\:float-animation:hover {
     animation: float 1.5s ease-in-out infinite;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    background-color: #16a34a;
+    /* Tailwind green-600 */
+    margin-left: 2px;
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
 </style>
